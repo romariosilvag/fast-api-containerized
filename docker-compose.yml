@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  web:
+    image: fast-api-container:1.0.0
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./backend:/backend
+    ports:
+      - 8080:8080
+    networks:
+      - fast-api-network
+
+networks:
+  fast-api-network:
+
+volumes:
+  dbdata:
